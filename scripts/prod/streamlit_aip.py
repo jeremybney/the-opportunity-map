@@ -250,19 +250,16 @@ if page == "Mirror Counties":
     ranked_counties['display'] = ranked_counties['State'] + " – " + ranked_counties['County']
 
     selected_county_for_info = st.sidebar.selectbox(
-        "Select a county for more info",
-        ranked_counties['display'].tolist() if not ranked_counties.empty else []
-    )
+    "Select a county for more info",
+    ranked_counties['display'].tolist() if not ranked_counties.empty else []
+)
 
-
-    if st.sidebar.button("More Info Here!"):
-        if not ranked_counties.empty:
-            fips_selected = ranked_counties.loc[
-                ranked_counties['display'] == selected_county_for_info, 'FIPS'
-            ].values[0]
-            compare_url = make_compare_link(original_fips, fips_selected)
-            js = f"window.open('{compare_url}')"
-            st.components.v1.html(f"<script>{js}</script>", height=0)
+if not ranked_counties.empty:
+    fips_selected = ranked_counties.loc[
+        ranked_counties['display'] == selected_county_for_info, 'FIPS'
+    ].values[0]
+    compare_url = make_compare_link(original_fips, fips_selected)
+    st.sidebar.link_button("More Info Here!", compare_url)
 
     
     ## -------------------------------
@@ -398,7 +395,7 @@ if page == "Mirror Counties":
     col1, col2 = st.columns(2)
     with col1:
         st.subheader(f"{variable_input} Compared to Mirror Counties")
-        st.altair_chart(bar_chart_with_avg, use_container_width=True)
+        st.altair_chart(bar_chart_with_avg, use_container_width=True, key="mirror_bar_chart")
         avg_text = f"${national_avg:,.0f}" if variable_input == "Income" else f"{national_avg:,.1f}"
         st.markdown(f"*Dashed line represents the national average for {variable_input}: {avg_text}.*")
 
