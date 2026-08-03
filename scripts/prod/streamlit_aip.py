@@ -47,11 +47,11 @@ st.set_page_config(page_title="American Inequality Project", layout="wide")
 col1, col2 = st.columns([1, 5])
 with col1:
     st.image(
-        "https://static.wixstatic.com/media/8ca3ee_77a2a3c2434c449b9303de5e88a91cb2~mv2.png/v1/crop/x_302,y_430,w_646,h_869/fill/w_40,h_55,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo.png",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Usa_counties_large.svg/3840px-Usa_counties_large.svg.png",
         width=100
     )
 with col2:
-    st.title("American Inequality Mirror Counties")
+    st.title("Opportunity Mapping")
 
 st.markdown(
     """
