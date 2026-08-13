@@ -250,16 +250,16 @@ if page == "Mirror Counties":
     ranked_counties['display'] = ranked_counties['State'] + " – " + ranked_counties['County']
 
     selected_county_for_info = st.sidebar.selectbox(
-    "Select a county for more info",
-    ranked_counties['display'].tolist() if not ranked_counties.empty else []
-)
+        "Select a county for more info",
+        ranked_counties['display'].tolist() if not ranked_counties.empty else []
+    )
 
-if not ranked_counties.empty:
-    fips_selected = ranked_counties.loc[
-        ranked_counties['display'] == selected_county_for_info, 'FIPS'
-    ].values[0]
-    compare_url = make_compare_link(original_fips, fips_selected)
-    st.sidebar.link_button("More Info Here!", compare_url)
+    if not ranked_counties.empty:
+        fips_selected = ranked_counties.loc[
+            ranked_counties['display'] == selected_county_for_info, 'FIPS'
+        ].values[0]
+        compare_url = make_compare_link(original_fips, fips_selected)
+        st.sidebar.link_button("More Info Here!", compare_url)
 
     
     ## -------------------------------
