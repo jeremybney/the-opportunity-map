@@ -535,7 +535,7 @@ if page == "About":
 
 **A tool for identifying demographically similar US counties to support policy research, advocacy, and community analysis.**
 
-🔗 [Live App](https://americaninequalityproject.streamlit.app/) | 📰 [American Inequality on Substack](https://americaninequality.substack.com/)
+[American Inequality on Substack](https://americaninequality.substack.com/)
 
 ---
 
